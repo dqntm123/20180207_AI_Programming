@@ -11,7 +11,7 @@ public class TestCode : MonoBehaviour {
     public ArrayList pathArray;
 
     GameObject objStartCube, objEndCube;
-    private float elapsedTime = 0;
+    private float elapsedTime = 0f;
     public float intervalTIme = 1f;
     
     void Start()
@@ -50,7 +50,7 @@ public class TestCode : MonoBehaviour {
                 if(index<pathArray.Count)
                 {
                     Node nextNode = (Node)pathArray[index];
-                    Debug.DrawLine(node.position, nextNode.position, Color.green);
+                    Debug.DrawLine(node.position, nextNode.position, Color.red);
                     index++;
                 }
             }

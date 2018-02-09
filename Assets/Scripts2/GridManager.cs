@@ -20,7 +20,7 @@ public class GridManager : MonoBehaviour {
         }
     }
     public int numOfRows;
-    public int numOfColumms;
+    public int numOfColumns;
     public float gridCellSize;
     public bool showGrid = true;
     public bool showObstacleBlocks = true;
@@ -32,14 +32,14 @@ public class GridManager : MonoBehaviour {
 
     void Awake()
     {
-        obstacleList = GameObject.FindGameObjectsWithTag("obstacle");
+        obstacleList = GameObject.FindGameObjectsWithTag("Obstacle");
         CalculateObstacles();
     }
     void CalculateObstacles()
     {
-        nodes = new Node[numOfColumms, numOfRows];
+        nodes = new Node[numOfColumns, numOfRows];
         int index = 0;
-        for (int i = 0; i < numOfColumms; i++)
+        for (int i = 0; i < numOfColumns; i++)
         {
             for (int j = 0; j < numOfRows; j++)
             {
@@ -84,22 +84,22 @@ public class GridManager : MonoBehaviour {
         pos -= Origin;
         int col = (int)(pos.x / gridCellSize);
         int row = (int)(pos.z / gridCellSize);
-        return (row * numOfColumms + col);
+        return (row * numOfColumns + col);
     }
     public bool IsInBounds(Vector3 pos)
     {
-        float width = numOfColumms * gridCellSize;
+        float width = numOfColumns * gridCellSize;
         float height = numOfRows * gridCellSize;
         return (pos.x >= Origin.x && pos.x <= Origin.x + width && pos.x <= Origin.z + height && pos.z >= Origin.z);
     }
     public int GetRow(int index)
     {
-        int row = index / numOfColumms;
+        int row = index / numOfColumns;
         return row;
     }
     public int GetColumn(int index)
     {
-        int col = index % numOfColumms;
+        int col = index % numOfColumns;
         return col;
     }
     public void GetNeighbours(Node node,ArrayList neighbors)
@@ -127,7 +127,7 @@ public class GridManager : MonoBehaviour {
     }
     void AssignNeighbour(int row, int column,ArrayList neighbors)
     {
-        if(row!=-1&&column!=-1&&row<numOfRows&&column<numOfColumms)
+        if(row!=-1 && column!=-1 && row<numOfRows && column<numOfColumns)
         {
             Node nodeToAdd = nodes[row, column];
             if(!nodeToAdd.bObstacle)
@@ -140,7 +140,7 @@ public class GridManager : MonoBehaviour {
     {
         if(showGrid)
         {
-            DebugDrawGrid(transform.position, numOfRows, numOfColumms, gridCellSize, Color.blue);
+            DebugDrawGrid(transform.position, numOfRows, numOfColumns, gridCellSize, Color.white );
         }
         Gizmos.DrawSphere(transform.position, 0.5f);
         if(showObstacleBlocks)
