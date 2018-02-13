@@ -47,7 +47,7 @@ public class TTower : MonoBehaviour {
     {
         if(col.gameObject.tag == "Enemy")
         {
-            Debug.Log(col.name);
+            //Debug.Log(col.name);
             lookObj.Add(col.gameObject);
         }
      
@@ -57,7 +57,7 @@ public class TTower : MonoBehaviour {
     {
         if (col.gameObject.tag == "Enemy")
         {
-            Debug.Log(col.name);
+            //Debug.Log(col.name);
             lookObj.Remove(col.gameObject);
         }
     }

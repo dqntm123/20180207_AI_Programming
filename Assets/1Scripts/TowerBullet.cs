@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerBullet : MonoBehaviour
 {
-
+    public GameObject effectA;
     public float bulletSpeed;
     void Start()
     {
@@ -20,6 +20,7 @@ public class TowerBullet : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
+            Instantiate(effectA, transform.position, transform.rotation);
         }
     }
 }
