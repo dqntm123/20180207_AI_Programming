@@ -6,7 +6,6 @@ public class ScoreManager : MonoBehaviour {
 
     public GameObject mainScore;
     public GameObject goalScore;
-    public GameObject enemy;
     public int score = 0;
     public int countE;
     void Start ()
@@ -17,6 +16,11 @@ public class ScoreManager : MonoBehaviour {
 	
 	void Update ()
     {
-        //Debug.Log(score);
+       
 	}
+    public void ToTalScore()
+    {
+        score += 5;
+        mainScore.GetComponent<TextMesh>().text = "Score : " + score;
+    }
 }

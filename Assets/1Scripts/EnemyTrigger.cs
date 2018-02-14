@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour {
 
-    public int enemyScore;
-
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "EnemyGoal")
